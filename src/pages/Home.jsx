@@ -41,12 +41,23 @@ const delApi=async (id)=>{
     }
     getApi();
 }
+const editApi=async (id,title,desc)=>{
+    try {
+        await axios.put(`${url}/${id}`,{title,description:desc});
+        
+    } catch (error) {
+        console.log(error);
+        
+    }
+    getApi()
+
+}
 
   return (
     <div>
         <AddDuty postApi={postApi} />
         <ShowDuties 
-        fill={fill}  delApi={delApi}/>
+        fill={fill}  delApi={delApi} editApi={editApi} />
         
         
 

@@ -1,6 +1,23 @@
+import { useState, useEffect } from "react";
 
+const EditDuty = ({ edit, editApi }) => {
+  const { id, title: newTitle, description } = edit;
 
-const EditDuty = () => {
+  const [title, setTitle] = useState(newTitle);
+  const [desc, setDesc] = useState(description);
+
+  useEffect(() => {
+    setTitle(newTitle);
+    setDesc(description);
+  }, [newTitle, description]);
+
+  const handleSave = (e) => {
+    e.preventDefault();
+    editApi(id, title, desc);
+    setTitle("");
+    setDesc("");
+  };
+
   return (
     <div className="modal" tabIndex="-1" id="edit-modal">
       <div className="modal-dialog">
@@ -15,24 +32,49 @@ const EditDuty = () => {
             ></button>
           </div>
           <div className="modal-body">
-            <p>Modal body text goes here.</p>
+            <div className="mb-3">
+              <label htmlFor="exampleInputEmail1" className="form-label">
+                Title
+              </label>
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Add your duty title..."
+                required
+                id="title"
+                value={title || ""}
+                onChange={(e) => setTitle(e.target.value)}
+              />
+            </div>
+            <div className="mb-3">
+              <label htmlFor="exampleInputPassword1" className="form-label">
+                Description
+              </label>
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Add your duty description..."
+                required
+                id="desc"
+                value={desc || ""}
+                onChange={(e) => setDesc(e.target.value)}
+              />
+            </div>
           </div>
           <div className="modal-footer">
             <button
               type="button"
-              className="btn btn-secondary"
+              className="btn btn-primary"
+              onClick={handleSave}
               data-bs-dismiss="modal"
             >
-              Close
-            </button>
-            <button type="button" className="btn btn-primary">
-              Save changes
+              Save
             </button>
           </div>
         </div>
       </div>
     </div>
   );
-}
+};
 
-export default EditDuty
+export default EditDuty;

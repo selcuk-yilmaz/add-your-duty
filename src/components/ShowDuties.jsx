@@ -1,8 +1,9 @@
+import { useState } from "react";
 import { FaEdit, FaTrash } from "react-icons/fa";
 import EditDuty from "./EditDuty";
 
-
-const ShowDuties = ({ fill, delApi }) => {
+const ShowDuties = ({ fill, delApi,editApi }) => {
+  const [edit, setEdit] = useState("");
 
   return (
     <div>
@@ -32,6 +33,7 @@ const ShowDuties = ({ fill, delApi }) => {
                     className="me-2 text-info "
                     data-bs-toggle="modal"
                     data-bs-target="#edit-modal"
+                    onClick={() => setEdit(item)}
                   />
                   <FaTrash
                     size={20}
@@ -45,8 +47,7 @@ const ShowDuties = ({ fill, delApi }) => {
           })}
         </tbody>
       </table>
-      <EditDuty />
-
+      <EditDuty edit={edit} editApi={editApi} />
     </div>
   );
 };
