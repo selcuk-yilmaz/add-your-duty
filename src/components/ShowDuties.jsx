@@ -6,7 +6,7 @@ const ShowDuties = ({ fill, delApi,editApi }) => {
   const [edit, setEdit] = useState("");
 
   return (
-    <div>
+    <div className="container table">
       <table className="table">
         <thead>
           <tr>

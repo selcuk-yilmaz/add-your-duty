@@ -39,4 +39,10 @@
 .container{
   background-color: brown;
   color: wheat;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
+}
+.table{
+  max-width: 1000px;
+  text-align: center;
+  background-color:lightcoral
 }
