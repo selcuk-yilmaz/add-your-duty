@@ -36,13 +36,22 @@
     transform: rotate(360deg);
   }
 } */
-.container{
-  background-color: brown;
+.container {
+  background-color: #f26800;
   color: wheat;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
 }
-.table{
+.table {
   max-width: 1000px;
   text-align: center;
-  background-color:lightcoral
+  background-color: #a3ccab;
+}
+body {
+  font-size: 1.5rem;
+  background-image: url("https://images.pexels.com/photos/1437953/pexels-photo-1437953.jpeg?auto=compress&cs=tinysrgb&w=1600");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  height: 100vh;
 }
